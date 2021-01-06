@@ -10,7 +10,7 @@ export default function Register(){
             <div className="content">
                 <section>
                     <img className="logo" src={logoImg} alt="Lixeira Inteligente"/>
-                    <h1> Cadastre-se</h1>
+                    <h1> Lixeira Inteligente</h1>
                     <p> Faça seu cadastro, entre na plataforma e troque seu lixo por pontos!</p> 
                     
                 </section>
@@ -26,12 +26,16 @@ export default function Register(){
                     <input
                         placeholder="Celular"
                     />
+                     <input
+                        placeholder="Senha"
+                    />
                     <button className="button" type="submit">Cadastrar</button>
-                </form>
-            </div>
-           
-
-            
+                    <Link to="/" className="back-link">
+                        <FiArrowLeft size={16} color="#36AE7C" />
+                        Já tem cadastro? Faça Login
+                    </Link>
+                </form>           
+            </div>       
         </div>
     );
 }

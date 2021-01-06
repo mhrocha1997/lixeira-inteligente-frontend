@@ -28,6 +28,7 @@
 .register-container .content section img{
     width: 100%;
     max-width: 200px;
+    border-radius: 25px;
 }
 
 .register-container .content section h1 {

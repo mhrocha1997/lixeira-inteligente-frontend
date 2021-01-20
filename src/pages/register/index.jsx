@@ -1,12 +1,12 @@
 import React,{useState} from 'react';
 import './style.css';
 import logoImg from '../../assets/logo.jpg';
-import {FiArrowLeft} from 'react-icons/fi';
+import {FiArrowRight} from 'react-icons/fi';
 import { Link,useHistory } from 'react-router-dom';
 import api from '../../services/api';
 
 export default function Register(){
-    const[name,setName] = useState('');
+    const[nome,setName] = useState('');
     const[email,setEmail] = useState('');
     const[password,setPassword] = useState('');
 
@@ -16,14 +16,14 @@ export default function Register(){
         e.preventDefault();
 
         const data = {
-            name,
+            nome,
             email,
             password
         };
 
         try{
-            const response = await api.post('create/user',data);
-            
+            const response = await api.post('/create/user',data,{'content-type': 'application/json'});
+            history.push('/')
 
         }catch (err){
             alert(err);
@@ -44,7 +44,7 @@ export default function Register(){
                 <form onSubmit={handleRegister}>
                     <input
                         placeholder="Nome"
-                        value={name}
+                        value={nome}
                         onChange={e =>setName(e.target.value)}
                     />
                     <input
@@ -61,8 +61,8 @@ export default function Register(){
                     />
                     <button className="button" type="submit">Cadastrar</button>
                     <Link to="/" className="back-link">
-                        <FiArrowLeft size={16} color="#36AE7C" />
                         Já tem cadastro? Faça Login
+                        <FiArrowRight size={16} color="#36AE7C" />
                     </Link>
                 </form>           
             </div>       
